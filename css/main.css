@@ -1,0 +1,170 @@
+#about {
+  margin: 25px auto;
+  width: 800px;
+}
+
+#about-description {
+  text-align: justify;
+}
+
+#about-members > img {
+  margin-top: 25px;
+  width: 400px;
+}
+
+#about-members > ul {
+  list-style: none;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+#contact {
+  margin: 25px auto;
+  position: relative;
+  text-align: left;
+  width: 850px;
+}
+
+#contact > form {
+  margin-top: 25px;
+  width: 400px;
+}
+
+#contact > form > div:last-child {
+  text-align: right;
+}
+
+#contact > form > div:last-child > input {
+  width: 100px;
+}
+
+#contact > form > div:not(:first-child) {
+  margin-top: 15px;
+}
+
+#contact > form > div > label, input, textarea {
+  box-sizing: border-box;
+  width: 400px;
+}
+
+#contact > h2 {
+  margin: 0 auto;
+  width: max-content;
+}
+
+#contact > img {
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+
+footer {
+  background-color: #333;
+  border: solid 1px #ccc;
+  height: 200px;
+  position: relative;
+  width: 100vw;
+}
+
+footer > img {
+  left: 50%;
+  margin-left: -150px;
+  position: absolute;
+  top: 30px;
+  width: 300px;
+}
+
+footer > #social-network {
+  margin: 20px 0 0 30px;
+}
+
+footer > #social-network > div {
+  margin-top: 10px;
+}
+
+footer > #social-network > div > * {
+  color: #FFF;
+}
+
+footer > #social-network > div > a {
+  text-decoration: none;
+}
+
+footer > #social-network > div > i {
+  font-size: 30px;
+  margin-right: 3px;
+}
+
+header {
+  height: max-content;
+  padding: 0;
+  position: relative;
+}
+
+header > #banner {
+  height: 300px;
+  opacity: .5;
+  width: 100vw;
+}
+
+header > #logo {
+  height: 100px;
+  left: 50%;
+  margin-left: -100px;
+  position: absolute;
+  bottom: 75px;
+  width: 200px;
+}
+
+#lyrics {
+  margin: 0 auto 50px;
+  width: 600px;
+}
+
+main {
+  min-height: 600px;
+  text-align: center;
+}
+
+nav {
+  border: solid 1px #000;
+  margin-top: -4px;
+  width: 100vw;
+}
+
+nav > ul {
+  list-style: none;
+  margin: 1em auto;
+  width: max-content;
+}
+
+nav > ul > li {
+  display: inline-block;
+  padding: 0 50px;
+}
+
+nav > ul > li:not(:last-child) {
+  border-right: solid 1px #000;
+}
+
+nav > ul > li > a {
+  color: #000;
+  text-decoration: none;
+}
+
+#photos {
+  margin: 25px auto;
+  width: 850px;
+}
+
+#photos > div {
+  columns: 2;
+}
+
+#photos > div > div > img {
+  height: 250px;
+  width: 400px;
+}
