@@ -21,6 +21,13 @@ body {
   overflow-x: hidden;
 }
 
+.chartjs-render-monitor {
+  display: block;
+  height: 600px !important;
+  max-width: 95vw !important;
+  margin: 5px auto;
+}
+
 #contact {
   margin: 25px auto;
   position: relative;
@@ -67,11 +74,18 @@ body {
   padding: 5px;
 }
 
-.chartjs-render-monitor {
-  display: block;
-  height: 600px !important;
-  max-width: 95vw !important;
-  margin: 5px auto;
+#dashboard-controls {
+  margin-top: 10px;
+}
+
+#dashboard-controls > div {
+  display: inline-block;
+  margin-left: 25px;
+  width: max-content;
+}
+
+#dashboard-controls > div:not(:first) {
+  margin-left: 0;
 }
 
 footer {
@@ -132,6 +146,10 @@ header > #logo {
   width: 200px;
 }
 
+input[type=checkbox] {
+  width: min-content;
+}
+
 #lyrics {
   margin: 0 auto 50px;
   width: 600px;
@@ -144,7 +162,7 @@ main {
 
 nav {
   border: solid 1px #000;
-  margin-top: -4px;
+  margin: -4px 0 0 -1px;
   width: 100vw;
 }
 
@@ -157,6 +175,10 @@ nav > ul {
 nav > ul > li {
   display: inline-block;
   padding: 0 50px;
+}
+
+nav > ul > li:hover {
+  text-decoration: underline;
 }
 
 nav > ul > li:not(:last-child) {

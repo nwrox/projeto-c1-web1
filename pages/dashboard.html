@@ -19,7 +19,7 @@
     <header>
       <img
         id="banner"
-        src="../images/banner.png"
+        src="../images/banner.jpeg"
         alt="banner"
       >
       <img
@@ -48,6 +48,20 @@
       </nav>
     </header>
     <main id="dashboard">
+      <div id="dashboard-controls">
+        <div>
+          <input id="chkComments" name="chkComments" type="checkbox">
+          <label for="chkComments">Comentários</label>
+        </div>
+        <div>
+          <input id="chkLikes" name="chkLikes" type="checkbox">
+          <label for="chkLikes">Likes</label>
+        </div>
+        <div>
+          <input id="chkRetweets" name="chkRetweets" type="checkbox">
+          <label for="chkRetweets">Retweets</label>
+        </div>
+      </div>
       <canvas id="canvas" class="chartjs-render-monitor"></canvas>
     </main>
     <footer>
@@ -76,66 +90,26 @@
       window.onload = () => {
         window.dashboardChart
           .getChartData()
-          .then(() => {
+          .then(config => {
             const ctx = document.getElementById('canvas')
               .getContext('2d')
 
-            new Chart(ctx, {
-              type: 'line',
-              data: {
-                datasets: [{
-                  label: '# of Comments',
-                  data: window.dashboardChart
-                    .dashboardData
-                    .comments,
-                  backgroundColor: color('rgb(75, 192, 192)').alpha(0.5)
-                    .rgbString(),
-                  borderColor: 'rgb(75, 192, 192)',
-                  fill: false
-                }, {
-                  label: '# of Likes',
-                  data: window.dashboardChart
-                    .dashboardData
-                    .likes,
-                  backgroundColor: color('rgb(255, 99, 132)').alpha(0.5)
-                    .rgbString(),
-                  borderColor: 'rgb(255, 99, 132)',
-                  fill: false
-                }, {
-                  label: '# of Retweets',
-                  data: window.dashboardChart
-                    .dashboardData
-                    .retweets,
-                  backgroundColor: color('rgb(54, 162, 235)').alpha(0.5)
-                    .rgbString(),
-                  borderColor: 'rgb(54, 162, 235)',
-                  fill: false
-                }]
-              },
-              options: {
-                legend: {
-                  display: true,
-                    labels: {
-                      display: false
-                    }
-                },
-                scales: {
-                  yAxes: [{
-                    ticks: {
-                      beginAtZero:true,
-                      fontSize: 11,
-                    }
-                  }],
-                  xAxes: [{
-                    type: 'time',
-                    time: {
-                      parser: 'YYYY/MM/DD HH:mm:ss',
-                      tooltipFormat: 'll HH:mm'
-                    }
-                  }]
-                }
-              }
-            })
+            window.lineChart = new Chart(ctx, config)
+
+            return null
+          })
+          .then(() => {
+            window.dashboardChart
+              .addListeners(true)
+            window.dashboardChart
+              .proxy
+              .showComments = true
+            window.dashboardChart
+              .proxy
+              .showLikes = true
+            window.dashboardChart
+              .proxy
+              .showRetweets = true
           })
   		}
     </script>
