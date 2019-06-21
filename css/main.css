@@ -61,6 +61,19 @@ body {
   top: 50px;
 }
 
+#dashboard {
+  height: max-content;
+  max-width: 100vw;
+  padding: 5px;
+}
+
+.chartjs-render-monitor {
+  display: block;
+  height: 600px !important;
+  max-width: 95vw !important;
+  margin: 5px auto;
+}
+
 footer {
   background-color: #333;
   border: solid 1px #ccc;

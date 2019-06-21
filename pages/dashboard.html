@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    >
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.bundle.min.js"
+      integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis="
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <img
+        id="banner"
+        src="../images/banner.png"
+        alt="banner"
+      >
+      <img
+        id="logo"
+        src="../images/logo.png"
+        alt="logo"
+      >
+      <nav>
+        <ul>
+          <li>
+            <a href="../index.html">Home</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+          <li>
+            <a href="photos.html">Photos</a>
+          </li>
+          <li>
+            <a href="dashboard.html">Dashboard</a>
+          </li>
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="dashboard">
+      <canvas id="canvas" class="chartjs-render-monitor"></canvas>
+    </main>
+    <footer>
+      <div id="social-network">
+        <div>
+          <i class="fab fa-facebook"></i>
+          <a href="https://www.facebook.com/JinjerOfficial">Facebook</a>
+        </div>
+        <div>
+          <i class="fab fa-instagram"></i>
+          <a href="https://www.instagram.com/jinjer_official/?hl=pt-br">Instagram</a>
+        </div>
+        <div>
+          <i class="fab fa-spotify"></i>
+          <a href="https://open.spotify.com/artist/7o6cOczXTB8ioTAAJTbESf">Spotify</a>
+        </div>
+        <div>
+          <i class="fab fa-twitter-square"></i>
+          <a href="https://twitter.com/jinjer_official">Twitter</a>
+        </div>
+      </div>
+      <img src="../images/logo_2.png" alt="logo da banda">
+    </footer>
+    <script src="../scripts/dashboard.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      window.onload = () => {
+        window.dashboardChart
+          .getChartData()
+          .then(() => {
+            const ctx = document.getElementById('canvas')
+              .getContext('2d')
+
+            new Chart(ctx, {
+              type: 'line',
+              data: {
+                datasets: [{
+                  label: '# of Comments',
+                  data: window.dashboardChart
+                    .dashboardData
+                    .comments,
+                  backgroundColor: color('rgb(75, 192, 192)').alpha(0.5)
+                    .rgbString(),
+                  borderColor: 'rgb(75, 192, 192)',
+                  fill: false
+                }, {
+                  label: '# of Likes',
+                  data: window.dashboardChart
+                    .dashboardData
+                    .likes,
+                  backgroundColor: color('rgb(255, 99, 132)').alpha(0.5)
+                    .rgbString(),
+                  borderColor: 'rgb(255, 99, 132)',
+                  fill: false
+                }, {
+                  label: '# of Retweets',
+                  data: window.dashboardChart
+                    .dashboardData
+                    .retweets,
+                  backgroundColor: color('rgb(54, 162, 235)').alpha(0.5)
+                    .rgbString(),
+                  borderColor: 'rgb(54, 162, 235)',
+                  fill: false
+                }]
+              },
+              options: {
+                legend: {
+                  display: true,
+                    labels: {
+                      display: false
+                    }
+                },
+                scales: {
+                  yAxes: [{
+                    ticks: {
+                      beginAtZero:true,
+                      fontSize: 11,
+                    }
+                  }],
+                  xAxes: [{
+                    type: 'time',
+                    time: {
+                      parser: 'YYYY/MM/DD HH:mm:ss',
+                      tooltipFormat: 'll HH:mm'
+                    }
+                  }]
+                }
+              }
+            })
+          })
+  		}
+    </script>
+  </body>
+</html>
